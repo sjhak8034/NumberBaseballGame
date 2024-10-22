@@ -1,14 +1,15 @@
-package GameV1;
+package UserRecord;
 
 import java.util.ArrayList;
 
-public class Record {
-    private ArrayList<Integer> records = new ArrayList<>();
+public class NumberBaseballRecord implements UserRecord {
 
+    private ArrayList<Integer> records = new ArrayList<>(){};
+    @Override
     public void record(int record) {
         records.add(record);
     }
-
+    @Override
     public void printRecord() {
         System.out.println("< 게임 기록 보기 >");
         for (int i = 0; i < records.size(); i++) {
@@ -17,7 +18,7 @@ public class Record {
         }
 
     }
-
+    @Override
     public void clearRecord() {
         records.clear();
     }

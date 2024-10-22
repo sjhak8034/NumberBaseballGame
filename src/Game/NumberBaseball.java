@@ -1,15 +1,17 @@
-package GameV1;
+package Game;
+
+import GameV1.GetInput;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Game {
+public class NumberBaseball implements Game {
 
     private int level;
 
-    public Game() {
+    public NumberBaseball() {
         GetInput getInput = new GetInput();
         this.level = getInput.setLevel();
     }
@@ -32,7 +34,7 @@ public class Game {
         }
         return result;
     }
-
+    @Override
     public Integer playGame() {
         GetInput getInput = new GetInput();
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);

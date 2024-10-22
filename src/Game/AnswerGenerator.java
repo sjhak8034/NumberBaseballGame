@@ -1,4 +1,4 @@
-package GameV1;
+package Game;
 
 import java.util.*;
 
