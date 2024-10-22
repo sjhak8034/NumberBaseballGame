@@ -1,14 +1,14 @@
-package Game;
+package Games.NumberBaseballGame;
 
 import java.util.*;
 
 public class AnswerGenerator {
-    private int digits;
+
     Random rand = new Random();
     private Set<Integer> answer = new HashSet<>();
 
     AnswerGenerator(int digits) {
-        this.digits = digits;
+
         while (answer.size() < digits) {
             answer.add(rand.nextInt(1,10));
         }

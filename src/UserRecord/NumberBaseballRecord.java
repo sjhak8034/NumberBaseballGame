@@ -2,11 +2,11 @@ package UserRecord;
 
 import java.util.ArrayList;
 
-public class NumberBaseballRecord implements UserRecord {
+public class NumberBaseballRecord<T> implements UserRecord <T> {
 
-    private ArrayList<Integer> records = new ArrayList<>(){};
+    private ArrayList<T> records = new ArrayList<>(){};
     @Override
-    public void record(int record) {
+    public void record(T record) {
         records.add(record);
     }
     @Override

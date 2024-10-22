@@ -1,18 +1,17 @@
-package GameV1;
+package UserInput;
 
-import java.util.ArrayList;
+import Exceptions.DuplicationNumberException;
+import Exceptions.NotNumberException;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import Exceptions.DuplicationNumber;
-import Exceptions.NotNumber;
 
 public class Parser {
     private String input = "";
     private String Try = "";
 
     // level 판별
-    public void isLevel(String input) {
+    public void checkLevelException(String input) {
         // 들어온 input이 숫자인지 아닌지 판단하고 아닐경우 Exception throw
         String numberRegLev = "[3-5]";
         Pattern pattern = Pattern.compile(numberRegLev);
@@ -20,29 +19,29 @@ public class Parser {
         if (matcher.matches()) {
             this.input = input;
         } else {
-            throw new NotNumber(input, 3, 5);
+            throw new NotNumberException(input, 3, 5);
         }
 
     }
 
     // user 시도 판별
-    public void isTry(String Try, int level) {
+    public void checkUserTryException(String userTry, int level) {
 
         String numberRegTry = "^(?!.*(.).*\\1)[1-9]{" + level + "}$";
 
         Pattern pattern = Pattern.compile(numberRegTry);
-        Matcher matcher = pattern.matcher(Try);
+        Matcher matcher = pattern.matcher(userTry);
 
         if (matcher.matches()) {
-            this.input = Try;
+            this.input = userTry;
         } else {
-            throw new DuplicationNumber();
+            throw new DuplicationNumberException();
         }
 
 
     }
 
-    public void isMode(String input) {
+    public void checkModeException(String input) {
         // 들어온 input이 숫자인지 아닌지 판단하고 아닐경우 Exception throw
         String numberRegLev = "[1-3]";
         Pattern pattern = Pattern.compile(numberRegLev);
@@ -50,7 +49,7 @@ public class Parser {
         if (matcher.matches()) {
             this.input = input;
         } else {
-            throw new NotNumber(input, 1, 3);
+            throw new NotNumberException(input, 1, 3);
         }
 
     }

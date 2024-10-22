@@ -1,9 +1,9 @@
 package UserRecord;
 
-public interface UserRecord {
-    public void record(int record);
+public interface UserRecord <T> {
+    void record(T record);
 
-    public void printRecord();
+    void printRecord();
 
-    public void clearRecord();
+    void clearRecord();
 }
