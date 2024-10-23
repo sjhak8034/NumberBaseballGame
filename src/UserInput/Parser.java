@@ -1,6 +1,6 @@
 package UserInput;
 
-import Exceptions.DuplicationNumberException;
+import Exceptions.DuplicateNumberException;
 import Exceptions.NotNumberException;
 
 import java.util.regex.Matcher;
@@ -36,7 +36,7 @@ public class Parser {
         if (matcher.matches()) {
             this.input = userTry;
         } else {
-            throw new DuplicationNumberException();
+            throw new DuplicateNumberException();
         }
 
 

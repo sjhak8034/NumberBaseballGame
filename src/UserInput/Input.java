@@ -1,6 +1,6 @@
 package UserInput;
 
-import Exceptions.DuplicationNumberException;
+import Exceptions.DuplicateNumberException;
 import Exceptions.NotNumberException;
 
 import java.util.ArrayList;
@@ -66,7 +66,7 @@ public class Input {
         } catch (NotNumberException e) {
             check = false;
             System.out.println(e.getMessage());
-        }catch (DuplicationNumberException e){
+        }catch (DuplicateNumberException e){
             check = false;
             System.out.println(e.getMessage());
         }catch (Exception e) {
