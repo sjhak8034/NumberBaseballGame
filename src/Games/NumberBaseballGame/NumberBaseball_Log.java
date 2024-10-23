@@ -13,9 +13,16 @@ public class NumberBaseball_Log implements Log<CurrentResult> {
     }
 
     @Override
-    public void print() {
+    public void printScore() {
         System.out.println(currentResults.size());
+    }
 
+    public void printLevel() {
+        currentResults.get(0).printLevel();
+    }
+
+    public void printTime(){
+        currentResults.get(currentResults.size()-1).printTime();
     }
 
 

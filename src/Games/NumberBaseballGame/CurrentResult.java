@@ -1,14 +1,19 @@
 package Games.NumberBaseballGame;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class CurrentResult {
     private int strike = 0;
     private int ball = 0;
     private int out = 0;
-
     private int level;
     private int win = 0;
-
+    private String formattedDateTime;
     public CurrentResult(int level) {
+        LocalDateTime now = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        formattedDateTime = now.format(formatter);
         this.level= level;
     }
 
@@ -38,7 +43,13 @@ public class CurrentResult {
     public void printStrikeBall() {
         System.out.println(ball + " 볼 " + strike + " 스트라이크");
     }
+    public void printLevel() {
+        System.out.printf("[%d 레벨]",level);
+    }
+    public void printTime(){
 
+        System.out.printf("[ "+formattedDateTime+" ]");
+    }
 
 
 }

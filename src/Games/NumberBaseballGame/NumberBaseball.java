@@ -1,13 +1,12 @@
 package Games.NumberBaseballGame;
 
 import Games.Game;
-import Games.Log;
 import UserInput.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberBaseball implements Game {
+public class NumberBaseball implements Game<NumberBaseball_Log> {
 
     private int level;
 
@@ -27,8 +26,8 @@ public class NumberBaseball implements Game {
 
     }
     @Override
-    public Log playGame() {
-        Log log = new NumberBaseball_Log();
+    public NumberBaseball_Log playGame() {
+        NumberBaseball_Log log = new NumberBaseball_Log();
         Input input = new Input();
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);
         List<Integer> answer = answerGenerator.getAnswer();

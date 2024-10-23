@@ -2,8 +2,8 @@ package MainApp;
 
 
 import Games.Game;
-import Games.Log;
 import Games.NumberBaseballGame.NumberBaseball;
+import Games.NumberBaseballGame.NumberBaseball_Log;
 import UserInput.Input;
 import UserRecord.NumberBaseballRecord;
 import UserRecord.UserRecord;
@@ -13,7 +13,7 @@ public class Controller {
 
     public void start() {
         // 숫자 야구 게임 기록을 생성
-        UserRecord<Log> recordBaseball = new NumberBaseballRecord<Log>();
+        UserRecord<NumberBaseball_Log> recordBaseball = new NumberBaseballRecord<NumberBaseball_Log>();
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
 
@@ -25,7 +25,7 @@ public class Controller {
             switch (mode) {
                 case STARTGAME:
                     // 숫자야구게임 시작 및 기록
-                    Game numberBaseball = new NumberBaseball();
+                    Game<NumberBaseball_Log> numberBaseball = new NumberBaseball();
 
                     recordBaseball.record(numberBaseball.playGame());
 
