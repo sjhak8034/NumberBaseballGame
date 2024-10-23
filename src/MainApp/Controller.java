@@ -9,9 +9,7 @@ import UserRecord.NumberBaseballRecord;
 import UserRecord.UserRecord;
 
 public class Controller {
-    public enum Mode {
-        STARTGAME, PRINTRECORD, EXITGAME
-    }
+
 
     public void start() {
         // 숫자 야구 게임 기록을 생성
