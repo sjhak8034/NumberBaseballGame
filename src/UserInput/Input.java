@@ -29,7 +29,7 @@ public class Input {
         return userTryArray;
     }
 
-    public Integer setMode() {
+    public Integer getMode() {
         Parser parser = new Parser();
         boolean check;
         String mode;
@@ -43,7 +43,7 @@ public class Input {
 
         return Integer.parseInt(mode);
     }
-    public Integer setLevel() {
+    public Integer getLevel() {
         Parser parser = new Parser();
         String level;
         boolean check = false;

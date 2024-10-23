@@ -12,7 +12,7 @@ public class NumberBaseball implements Game {
 
     public NumberBaseball() {
         Input input = new Input();
-        this.level = input.setLevel();
+        this.level = input.getLevel();
     }
 
     private void getResult(CurrentResult currentResult ,List<Integer> answer, ArrayList<Integer> userTry) {
