@@ -2,6 +2,7 @@ package MainApp;
 
 
 import Games.Game;
+import Games.Log;
 import Games.NumberBaseballGame.NumberBaseball;
 import UserInput.Input;
 import UserRecord.NumberBaseballRecord;
@@ -14,7 +15,7 @@ public class Controller {
 
     public void start() {
         // 숫자 야구 게임 기록을 생성
-        UserRecord recordBaseball = new NumberBaseballRecord();
+        UserRecord<Log> recordBaseball = new NumberBaseballRecord<Log>();
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
 
@@ -27,8 +28,8 @@ public class Controller {
                 case STARTGAME:
                     // 숫자야구게임 시작 및 기록
                     Game numberBaseball = new NumberBaseball();
-                    int result = numberBaseball.playGame();
-                    recordBaseball.record(result);
+
+                    recordBaseball.record(numberBaseball.playGame());
 
                     break;
                 case PRINTRECORD:
@@ -39,7 +40,7 @@ public class Controller {
                     //게임 종료
                     stop = true;
                     System.out.println("<숫자 야구 게임을 종료합니다>");
-                    recordBaseball.clearRecord();
+
                     break;
 
             }

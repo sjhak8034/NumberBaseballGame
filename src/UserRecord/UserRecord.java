@@ -5,5 +5,5 @@ public interface UserRecord <T> {
 
     void printRecord();
 
-    void clearRecord();
+
 }

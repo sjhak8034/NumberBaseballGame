@@ -4,8 +4,13 @@ public class CurrentResult {
     private int strike = 0;
     private int ball = 0;
     private int out = 0;
-    private int score = 0;
 
+    private int level;
+    private int win = 0;
+
+    public CurrentResult(int level) {
+        this.level= level;
+    }
 
     public void incrementStrike() {
         strike++;
@@ -13,28 +18,27 @@ public class CurrentResult {
     public void incrementBall() {
         ball++;
     }
-    public void incrementOut() {
-        out++;
-    }
-    public void incrementScore() {
-        score++;
-    }
-    public void resetSBO(){
-        strike = 0;
-        ball = 0;
-        out = 0;
+
+    public boolean isCorrect() {
+        if(strike ==level ){
+            this.win++;
+            return true;
+        }
+        return false;
     }
 
-    public int getStrike() {
-        return strike;
+    public boolean isOut() {
+        if(strike ==0 && ball == 0){
+            this.out++;
+            return true;
+        }
+        return false;
     }
-    public int getBall() {
-        return ball;
+
+    public void printStrikeBall() {
+        System.out.println(ball + " 볼 " + strike + " 스트라이크");
     }
-    public int getOut() {
-        return out;
-    }
-    public int getScore() {
-        return score;
-    }
+
+
+
 }

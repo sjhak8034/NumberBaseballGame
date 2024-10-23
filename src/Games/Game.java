@@ -1,6 +1,6 @@
 package Games;
 
-public interface Game {
-    Integer playGame();
+public interface Game<T> {
+    Log playGame();
 
 }
