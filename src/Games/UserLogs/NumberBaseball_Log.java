@@ -1,6 +1,6 @@
-package Games.NumberBaseballGame;
+package Games.UserLogs;
 
-import Games.Log;
+import Games.NumberBaseballGame.CurrentResult;
 
 import java.util.ArrayList;
 import java.util.List;

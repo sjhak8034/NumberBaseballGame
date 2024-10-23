@@ -5,7 +5,7 @@ import java.util.*;
 public class AnswerGenerator {
 
     Random rand = new Random();
-    private Set<Integer> answer = new HashSet<>();
+    private final Set<Integer> answer = new HashSet<>();
 
     AnswerGenerator(int digits) {
 

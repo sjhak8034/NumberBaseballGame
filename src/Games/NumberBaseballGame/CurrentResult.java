@@ -7,9 +7,9 @@ public class CurrentResult {
     private int strike = 0;
     private int ball = 0;
     private int out = 0;
-    private int level;
+    private final int level;
     private int win = 0;
-    private String formattedDateTime;
+    private final String formattedDateTime;
     public CurrentResult(int level) {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");

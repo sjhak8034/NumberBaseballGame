@@ -1,6 +1,7 @@
 package Games.NumberBaseballGame;
 
 import Games.Game;
+import Games.UserLogs.NumberBaseball_Log;
 import UserInput.Input;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import java.util.List;
 
 public class NumberBaseball implements Game<NumberBaseball_Log> {
 
-    private int level;
+    private final int level;
 
     public NumberBaseball() {
         Input input = new Input();

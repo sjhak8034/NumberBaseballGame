@@ -3,7 +3,7 @@ package MainApp;
 
 import Games.Game;
 import Games.NumberBaseballGame.NumberBaseball;
-import Games.NumberBaseballGame.NumberBaseball_Log;
+import Games.UserLogs.NumberBaseball_Log;
 import UserInput.Input;
 import UserRecord.NumberBaseballRecord;
 import UserRecord.UserRecord;
@@ -49,15 +49,15 @@ public class Controller {
         Input input = new Input();
         int unconvertedMode = input.getMode();
         int modeCount = 0;
-        Mode mode = Mode.EXITGAME;
+        Mode convertedMode = Mode.EXITGAME;
         for (Mode m : Mode.values()) {
             modeCount++;
-            mode= m;
+            convertedMode = m;
             if (modeCount == unconvertedMode) {
                 break;
             }
 
         }
-        return mode;
+        return convertedMode;
     }
 }
