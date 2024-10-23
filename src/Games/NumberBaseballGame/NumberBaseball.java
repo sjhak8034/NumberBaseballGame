@@ -16,7 +16,7 @@ public class NumberBaseball implements Game<NumberBaseball_Log> {
         this.level = input.getLevel();
     }
 
-    private void getResult(CurrentResult currentResult ,List<Integer> answer, ArrayList<Integer> userTry) {
+    private void getResult(CurrentResult currentResult, List<Integer> answer, ArrayList<Integer> userTry) {
         for (int i = 0; i < this.level; i++) {
             if (answer.get(i) == userTry.get(i)) {
                 currentResult.incrementStrike();
@@ -26,6 +26,21 @@ public class NumberBaseball implements Game<NumberBaseball_Log> {
         }
 
     }
+    public boolean displayResult(CurrentResult currentResult) {
+        if (currentResult.isCorrect()) {
+            System.out.println("축하합니다 정답입니다!");
+            System.out.println("");
+            return true;
+        } else if (currentResult.isOut()) {
+            System.out.println("아웃");
+            System.out.println("");
+
+        } else {
+            currentResult.printStrikeBall();
+            System.out.println("");
+        }
+        return false;
+    }
     @Override
     public NumberBaseball_Log playGame() {
         NumberBaseball_Log log = new NumberBaseball_Log();
@@ -33,33 +48,15 @@ public class NumberBaseball implements Game<NumberBaseball_Log> {
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);
         List<Integer> answer = answerGenerator.getAnswer();
 
-
         boolean finish = false;
-
-
-
-        while (!finish) {
+        do {
             CurrentResult currentResult = new CurrentResult(level);
             ArrayList<Integer> userTry = input.getUserTry(this.level);
 
-            getResult(currentResult,answer, userTry);
+            getResult(currentResult, answer, userTry);
             log.append(currentResult);
-            if (currentResult.isCorrect()) {
-                System.out.println("축하합니다 정답입니다!");
-                System.out.println("");
-                finish = true;
-            }else if (currentResult.isOut()) {
-                System.out.println("아웃");
-                System.out.println("");
-            }
-            else {
-                currentResult.printStrikeBall();
-                System.out.println("");
-
-            }
-
-
-        }
+            finish = displayResult(currentResult);
+        }while (!finish);
         return log;
     }
 }
