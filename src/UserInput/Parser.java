@@ -9,11 +9,12 @@ import java.util.regex.Pattern;
 public class Parser {
     private String input = "";
     private String Try = "";
+    private final String numberRegLev = "[3-5]";
 
-    // level 판별
+    private final String numberRegMode = "[1-3]";
     public void checkLevelException(String input) {
-        // 들어온 input이 숫자인지 아닌지 판단하고 아닐경우 Exception throw
-        String numberRegLev = "[3-5]";
+
+
         Pattern pattern = Pattern.compile(numberRegLev);
         Matcher matcher = pattern.matcher(input);
         if (matcher.matches()) {
@@ -24,10 +25,10 @@ public class Parser {
 
     }
 
-    // user 시도 판별
-    public void checkUserTryException(String userTry, int level) {
 
+    public void checkUserTryException(String userTry, int level) {
         String numberRegTry = "^(?!.*(.).*\\1)[1-9]{" + level + "}$";
+
 
         Pattern pattern = Pattern.compile(numberRegTry);
         Matcher matcher = pattern.matcher(userTry);
@@ -42,9 +43,9 @@ public class Parser {
     }
 
     public void checkModeException(String input) {
-        // 들어온 input이 숫자인지 아닌지 판단하고 아닐경우 Exception throw
-        String numberRegLev = "[1-3]";
-        Pattern pattern = Pattern.compile(numberRegLev);
+
+
+        Pattern pattern = Pattern.compile(numberRegMode);
         Matcher matcher = pattern.matcher(input);
         if (matcher.matches()) {
             this.input = input;
