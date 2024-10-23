@@ -1,12 +1,13 @@
-package UserInput;
+package OldClasses;
 
 import Exceptions.DuplicationNumberException;
 import Exceptions.NotNumberException;
+import UserInput.Parser;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class GetInput {
+public class OldInput {
     Scanner scanner = new Scanner(System.in);
 
 
@@ -71,8 +72,8 @@ public class GetInput {
                 System.out.println(e.getMessage());
             }
         } while (!check);
+        int i = 0;
+
         return Integer.parseInt(mode);
     }
-
-
 }

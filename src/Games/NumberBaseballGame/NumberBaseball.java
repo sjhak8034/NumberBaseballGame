@@ -1,7 +1,7 @@
 package Games.NumberBaseballGame;
 
 import Games.Game;
-import UserInput.GetInput;
+import UserInput.Input;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,8 @@ public class NumberBaseball implements Game {
     private int level;
 
     public NumberBaseball() {
-        GetInput getInput = new GetInput();
-        this.level = getInput.setLevel();
+        Input input = new Input();
+        this.level = input.setLevel();
     }
 
     private void getResult(CurrentResult currentResult ,List<Integer> answer, ArrayList<Integer> userTry) {
@@ -34,7 +34,7 @@ public class NumberBaseball implements Game {
     }
     @Override
     public Integer playGame() {
-        GetInput getInput = new GetInput();
+        Input input = new Input();
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);
         List<Integer> answer = answerGenerator.getAnswer();
         CurrentResult currentResult = new CurrentResult();
@@ -45,7 +45,7 @@ public class NumberBaseball implements Game {
 
         while (finish == false) {
 
-            ArrayList<Integer> userTry = getInput.getUserTry(this.level);
+            ArrayList<Integer> userTry = input.getUserTry(this.level);
 
             getResult(currentResult,answer, userTry);
             if (currentResult.getStrike() == level) {
