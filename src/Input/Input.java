@@ -57,24 +57,21 @@ public class Input {
     }
 
     private boolean executeWithExceptionHandling(String input , Consumer<String> checkException) {
-        boolean check = false;
-
 
         try {
-            check = true;
             checkException.accept(input);
         } catch (NotNumberException e) {
-            check = false;
             System.out.println(e.getMessage());
+            return false;
         }catch (DuplicateNumberException e){
-            check = false;
             System.out.println(e.getMessage());
+            return false;
         }catch (Exception e) {
-            check = false;
             System.out.println(e.getMessage());
+            return false;
         }
 
-        return check;
+        return true;
     }
 
 }
