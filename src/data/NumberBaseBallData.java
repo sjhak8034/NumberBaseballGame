@@ -4,7 +4,7 @@ import game.log.GameLogger;
 
 import java.util.ArrayList;
 
-public class NumberBaseBallMemory<T extends GameLogger> implements Memory<T> {
+public class NumberBaseBallData<T extends GameLogger> implements Data<T> {
 
     private final ArrayList<T> records = new ArrayList<>(){};
     @Override

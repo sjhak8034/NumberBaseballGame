@@ -1,6 +1,6 @@
 package data;
 
-public interface Memory<T> {
+public interface Data<T> {
     void record(T record);
 
     void printRecord();
