@@ -1,2 +1,2 @@
 # NumberBaseballGame
-![Main (2)](https://github.com/user-attachments/assets/9006f8d1-72a2-4791-9ec7-96a859457098)
+![Main의 사본](https://github.com/user-attachments/assets/7c1fddef-0fd5-4951-a039-b4be8b87c64e)
