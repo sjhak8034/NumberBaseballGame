@@ -1,4 +1,4 @@
-package Exceptions;
+package exception;
 
 public class NotNumberException extends RuntimeException {
     public NotNumberException(String message, int a, int b) {

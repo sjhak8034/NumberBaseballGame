@@ -1,10 +1,10 @@
 package UserRecord;
 
-import Games.UserLogs.NumberBaseball_Log;
+import game.log.GameLogger;
 
 import java.util.ArrayList;
 
-public class NumberBaseballRecord<T extends NumberBaseball_Log> implements UserRecord <T> {
+public class NumberBaseBallMemory<T extends GameLogger> implements Memory<T> {
 
     private final ArrayList<T> records = new ArrayList<>(){};
     @Override

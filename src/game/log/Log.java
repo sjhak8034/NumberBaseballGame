@@ -1,4 +1,4 @@
-package Games.UserLogs;
+package game.log;
 
 public interface Log <T>{
     public void append(T t);

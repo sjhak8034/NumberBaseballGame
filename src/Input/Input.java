@@ -1,7 +1,7 @@
-package UserInput;
+package Input;
 
-import Exceptions.DuplicateNumberException;
-import Exceptions.NotNumberException;
+import exception.DuplicateNumberException;
+import exception.NotNumberException;
 
 import java.util.ArrayList;
 import java.util.Scanner;

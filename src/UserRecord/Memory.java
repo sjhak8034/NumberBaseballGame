@@ -1,6 +1,6 @@
 package UserRecord;
 
-public interface UserRecord <T> {
+public interface Memory<T> {
     void record(T record);
 
     void printRecord();
