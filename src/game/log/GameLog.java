@@ -64,6 +64,7 @@ public class GameLog {
         System.out.printf(this.answer.toString());
     }
 
+    // 리플레이 재생할때 출력
     public void printAll() {
         printTime();
         System.out.printf(" [");

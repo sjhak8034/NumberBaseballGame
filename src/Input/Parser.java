@@ -14,7 +14,6 @@ public class Parser {
 
     public void checkLevelException(String input) throws NotNumberException {
 
-
         Pattern pattern = Pattern.compile(NUMBER_REG_LEVEL);
         Matcher matcher = pattern.matcher(input);
         if (matcher.matches()) {
@@ -29,7 +28,6 @@ public class Parser {
     public void checkUserTryException(String userTry, int level) throws DuplicateNumberException {
         final String NUMBER_REG_TRY = "^(?!.*(.).*\\1)[1-9]{" + level + "}$";
 
-
         Pattern pattern = Pattern.compile(NUMBER_REG_TRY);
         Matcher matcher = pattern.matcher(userTry);
 
@@ -43,7 +41,6 @@ public class Parser {
     }
 
     public void checkModeException(String input) throws NotNumberException {
-
 
         Pattern pattern = Pattern.compile(NUMBER_REG_MODE);
         Matcher matcher = pattern.matcher(input);

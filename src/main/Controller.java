@@ -3,7 +3,7 @@ package main;
 
 import game.Game;
 import game.numberbaseball.NumberBaseballStarter;
-import game.log.GameLogPrinter;
+import game.log.GameLogPrinterPrinter;
 import Input.Input;
 import data.NumberBaseBallData;
 import data.Data;
@@ -13,7 +13,7 @@ public class Controller {
 
     public void start() {
         // 숫자 야구 게임 기록을 생성
-        Data<GameLogPrinter> recordBaseball = new NumberBaseBallData();
+        Data<GameLogPrinterPrinter> recordBaseball = new NumberBaseBallData();
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
 
@@ -24,7 +24,7 @@ public class Controller {
             switch (mode) {
                 case STARTGAME:
 
-                    Game<GameLogPrinter> numberBaseball = new NumberBaseballStarter();
+                    Game<GameLogPrinterPrinter> numberBaseball = new NumberBaseballStarter();
                     recordBaseball.save(numberBaseball.playGame());
                     break;
 
@@ -47,8 +47,8 @@ public class Controller {
             }
         }
     }
-    private Mode setMode (){
 
+    private Mode setMode (){
         Input input = new Input();
         int unconvertedMode = input.getMode();
         int modeCount = 0;

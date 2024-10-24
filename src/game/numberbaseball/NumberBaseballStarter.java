@@ -2,14 +2,13 @@ package game.numberbaseball;
 
 import game.Game;
 import game.log.GameLog;
-import game.log.GameLogPrinter;
+import game.log.GameLogPrinterPrinter;
 import Input.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberBaseballStarter implements Game<GameLogPrinter> {
-
+public class NumberBaseballStarter implements Game<GameLogPrinterPrinter> {
     private final int level;
 
     public NumberBaseballStarter() {
@@ -43,14 +42,15 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
 
     }
     @Override
-    public GameLogPrinter playGame() {
-        GameLogPrinter log = new GameLogPrinter();
+    public GameLogPrinterPrinter playGame() {
+        GameLogPrinterPrinter log = new GameLogPrinterPrinter();
         Input input = new Input();
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);
         List<Integer> answer = answerGenerator.getAnswer();
 
         boolean finish = false;
         while (!finish) {
+            // 로그생성 -> 로그 프린터에 로그 클래스 저장
             ArrayList<Integer> userTry = input.getUserTry(this.level);
             GameLog gameLog = new GameLog(level, userTry, answer);
             saveLog(gameLog, answer, userTry);
