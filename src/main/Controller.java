@@ -17,7 +17,6 @@ public class Controller {
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
 
-
         boolean stop = false;
 
         while (!stop) {
@@ -45,10 +44,8 @@ public class Controller {
                     System.out.println("<숫자 야구 게임을 종료합니다>");
 
                     break;
-
             }
         }
-
     }
     private Mode setMode (){
 

@@ -21,6 +21,7 @@ public class Input {
             userTry = scanner.nextLine();
             check = executeWithExceptionHandling(userTry, input -> parser.checkUserTryException(input, level));
         }while (!check);
+
         for (int i = 0; i < level; i++) {
             userTryArray.add(Integer.parseInt(userTry.charAt(i) + ""));
         }
