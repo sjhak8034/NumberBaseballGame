@@ -7,33 +7,28 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Parser {
-    private String input = "";
-    private String Try = "";
+
     private final String NUMBER_REG_LEVEL = "[3-5]";
     private final String NUMBER_REG_MODE = "[1-4]";
 
     public void checkLevelException(String input) throws NotNumberException {
+        Pattern LEVEL_PATTERN = Pattern.compile(NUMBER_REG_LEVEL);
+        Matcher matcher = LEVEL_PATTERN.matcher(input);
 
-        Pattern pattern = Pattern.compile(NUMBER_REG_LEVEL);
-        Matcher matcher = pattern.matcher(input);
-        if (matcher.matches()) {
-            this.input = input;
-        } else {
+        if (!matcher.matches()) {
             throw new NotNumberException(input, 3, 5);
         }
 
     }
 
 
-    public void checkUserTryException(String userTry, int level) throws DuplicateNumberException {
+    public void checkUserTryException(String userTrial, int level) throws DuplicateNumberException {
         final String NUMBER_REG_TRY = "^(?!.*(.).*\\1)[1-9]{" + level + "}$";
 
-        Pattern pattern = Pattern.compile(NUMBER_REG_TRY);
-        Matcher matcher = pattern.matcher(userTry);
+        Pattern MODE_PATTERN  = Pattern.compile(NUMBER_REG_TRY);
+        Matcher matcher = MODE_PATTERN .matcher(userTrial);
 
-        if (matcher.matches()) {
-            this.input = userTry;
-        } else {
+        if (!matcher.matches()) {
             throw new DuplicateNumberException();
         }
 
@@ -41,12 +36,10 @@ public class Parser {
     }
 
     public void checkModeException(String input) throws NotNumberException {
-
         Pattern pattern = Pattern.compile(NUMBER_REG_MODE);
         Matcher matcher = pattern.matcher(input);
-        if (matcher.matches()) {
-            this.input = input;
-        } else {
+
+        if (!matcher.matches()) {
             throw new NotNumberException(input, 1, 3);
         }
 

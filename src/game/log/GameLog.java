@@ -61,7 +61,9 @@ public class GameLog {
     }
 
     public void printAnswer(){
-        System.out.printf(this.answer.toString());
+        System.out.print(" 정답: ");
+        System.out.println(this.answer.toString());
+
     }
 
     // 리플레이 재생할때 출력

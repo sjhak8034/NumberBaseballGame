@@ -2,13 +2,13 @@ package game.numberbaseball;
 
 import game.Game;
 import game.log.GameLog;
-import game.log.GameLogPrinterPrinter;
+import game.log.GameLogPrinter;
 import Input.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberBaseballStarter implements Game<GameLogPrinterPrinter> {
+public class NumberBaseballStarter implements Game<GameLogPrinter> {
     private final int level;
 
     public NumberBaseballStarter() {
@@ -29,34 +29,41 @@ public class NumberBaseballStarter implements Game<GameLogPrinterPrinter> {
     public void displayResult(GameLog gameLog) {
         if (gameLog.isCorrect()) {
             System.out.println("축하합니다 정답입니다!");
-            System.out.println("");
 
         } else if (gameLog.isOut()) {
             System.out.println("아웃");
-            System.out.println("");
 
         } else {
             gameLog.printStrikeBall();
-            System.out.println("");
         }
-
+        System.out.println("");
     }
+
+    private GameLog createGameLog(List<Integer> answer, ArrayList<Integer> userTrial) {
+        GameLog gameLog = new GameLog(level, userTrial, answer);
+        saveLog(gameLog, answer, userTrial);
+        return gameLog;
+    }
+
     @Override
-    public GameLogPrinterPrinter playGame() {
-        GameLogPrinterPrinter log = new GameLogPrinterPrinter();
+    public GameLogPrinter playGame() {
+        GameLogPrinter log = new GameLogPrinter();
         Input input = new Input();
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);
-        List<Integer> answer = answerGenerator.getAnswer();
+        List<Integer> answer = answerGenerator.generateAnswer();
 
-        boolean finish = false;
-        while (!finish) {
+
+        while (true) {
             // 로그생성 -> 로그 프린터에 로그 클래스 저장
-            ArrayList<Integer> userTry = input.getUserInputForTrial(this.level);
-            GameLog gameLog = new GameLog(level, userTry, answer);
-            saveLog(gameLog, answer, userTry);
+            ArrayList<Integer> userTrial = input.getUserInputForTrial(this.level);
+            GameLog gameLog = createGameLog(answer, userTrial);
+
             log.append(gameLog);
             displayResult(gameLog);
-            finish = gameLog.isCorrect();
+
+            if(gameLog.isCorrect()){
+                break;
+            }
         }
         return log;
     }

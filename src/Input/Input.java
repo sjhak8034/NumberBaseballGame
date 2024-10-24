@@ -8,35 +8,33 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class Input {
-
+    Scanner scanner = new Scanner(System.in);
 
 
     public ArrayList<Integer> getUserInputForTrial(int level) {
-        Scanner scanner = new Scanner(System.in);
+
         ArrayList<Integer> userInputTrials = new ArrayList<>();
         Parser parser = new Parser();
-
         boolean check;
-        String userInputTrial;
+        String userTrial;
 
         do {
             System.out.println(level + "자리의 수를 중복 없이 입력하세요");
-            userInputTrial = scanner.nextLine();
-            check = executeWithExceptionHandling(userInputTrial, input -> parser.checkUserTryException(input, level));
+            userTrial = scanner.nextLine();
+            check = executeWithExceptionHandling(userTrial, input -> parser.checkUserTryException(input, level));
         }while (!check);
 
         for (int i = 0; i < level; i++) {
-            userInputTrials.add(Integer.parseInt(userInputTrial.charAt(i) + ""));
+            userInputTrials.add(Integer.parseInt(userTrial.charAt(i) + ""));
         }
 
-        scanner.close();
+
         return userInputTrials;
     }
 
     public Integer getUserInputForMode() {
-        Scanner scanner = new Scanner(System.in);
-        Parser parser = new Parser();
 
+        Parser parser = new Parser();
         boolean check;
         String mode;
 
@@ -47,11 +45,11 @@ public class Input {
         }while (!check);
         int i = 0;
 
-        scanner.close();
+
         return Integer.parseInt(mode);
     }
     public Integer getUserInputForLevel() {
-        Scanner scanner = new Scanner(System.in);
+
         Parser parser = new Parser();
 
         String level;
@@ -63,7 +61,7 @@ public class Input {
             check = executeWithExceptionHandling(level, parser::checkLevelException);
         }while (!check);
 
-        scanner.close();
+
         return Integer.parseInt(level);
     }
 
