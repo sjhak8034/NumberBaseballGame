@@ -4,18 +4,19 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class GameLog {
+    private final int LEVEL;
+    private final String DATE_TIME;
     private int strike = 0;
     private int ball = 0;
-    private int out = 0;
-    private final int level;
+    private int out;
     private int win = 0;
-    private final String formattedDateTime;
 
-    public GameLog(int level) {
+
+    public GameLog(int LEVEL) {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        formattedDateTime = now.format(formatter);
-        this.level= level;
+        DATE_TIME = now.format(formatter);
+        this.LEVEL = LEVEL;
     }
 
     public void incrementStrike() {
@@ -27,7 +28,7 @@ public class GameLog {
     }
 
     public boolean isCorrect() {
-        if(strike ==level ){
+        if(strike == LEVEL){
             this.win++;
             return true;
         }
@@ -47,12 +48,12 @@ public class GameLog {
     }
 
     public void printLevel() {
-        System.out.printf("[%d 레벨]",level);
+        System.out.printf("[%d 레벨]", LEVEL);
     }
 
     public void printTime(){
 
-        System.out.printf("[ "+formattedDateTime+" ]");
+        System.out.printf("[ "+ DATE_TIME +" ]");
     }
 
 
