@@ -10,7 +10,7 @@ public class Parser {
     private String input = "";
     private String Try = "";
     private final String NUMBER_REG_LEVEL = "[3-5]";
-    private final String NUMBER_REG_MODE = "[1-3]";
+    private final String NUMBER_REG_MODE = "[1-4]";
 
     public void checkLevelException(String input) throws NotNumberException {
 

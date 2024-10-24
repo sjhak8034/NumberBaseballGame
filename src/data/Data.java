@@ -5,5 +5,6 @@ public interface Data<T> {
 
     void printData();
 
+    void printReplay();
 
 }

@@ -35,7 +35,7 @@ public class Input {
         String mode;
 
         do {
-            System.out.println("1. 게임 시작하기  2. 게임 기록 보기  3. 종료하기");
+            System.out.println("1. 게임 시작하기  2. 게임 기록 보기 3. 리플레이 보기 4. 종료하기");
             mode = scanner.nextLine();
             check = executeWithExceptionHandling(mode, parser::checkModeException);
         }while (!check);

@@ -2,13 +2,13 @@ package game.numberbaseball;
 
 import game.Game;
 import game.log.GameLog;
-import game.log.GameLogger;
+import game.log.GameLogPrinter;
 import Input.Input;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberBaseballStarter implements Game<GameLogger> {
+public class NumberBaseballStarter implements Game<GameLogPrinter> {
 
     private final int level;
 
@@ -43,17 +43,16 @@ public class NumberBaseballStarter implements Game<GameLogger> {
         return false;
     }
     @Override
-    public GameLogger playGame() {
-        GameLogger log = new GameLogger();
+    public GameLogPrinter playGame() {
+        GameLogPrinter log = new GameLogPrinter();
         Input input = new Input();
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);
         List<Integer> answer = answerGenerator.getAnswer();
 
         boolean finish = false;
         do {
-            GameLog gameLog = new GameLog(level);
             ArrayList<Integer> userTry = input.getUserTry(this.level);
-
+            GameLog gameLog = new GameLog(level,userTry,answer);
             getResult(gameLog, answer, userTry);
             log.append(gameLog);
             finish = displayResult(gameLog);
