@@ -50,7 +50,7 @@ public class Controller {
 
     private Mode setMode (){
         Input input = new Input();
-        int unconvertedMode = input.getMode();
+        int unconvertedMode = input.getUserInputForMode();
         int modeCount = 0;
         Mode convertedMode = Mode.EXITGAME;
 

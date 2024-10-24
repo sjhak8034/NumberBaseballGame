@@ -8,30 +8,35 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class Input {
-    Scanner scanner = new Scanner(System.in);
 
-    public ArrayList<Integer> getUserTry(int level) {
-        ArrayList<Integer> userTryArray = new ArrayList<>();
+
+
+    public ArrayList<Integer> getUserInputForTrial(int level) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> userInputTrials = new ArrayList<>();
         Parser parser = new Parser();
+
         boolean check;
-        String userTry;
+        String userInputTrial;
 
         do {
             System.out.println(level + "자리의 수를 중복 없이 입력하세요");
-            userTry = scanner.nextLine();
-            check = executeWithExceptionHandling(userTry, input -> parser.checkUserTryException(input, level));
+            userInputTrial = scanner.nextLine();
+            check = executeWithExceptionHandling(userInputTrial, input -> parser.checkUserTryException(input, level));
         }while (!check);
 
         for (int i = 0; i < level; i++) {
-            userTryArray.add(Integer.parseInt(userTry.charAt(i) + ""));
+            userInputTrials.add(Integer.parseInt(userInputTrial.charAt(i) + ""));
         }
 
-
-        return userTryArray;
+        scanner.close();
+        return userInputTrials;
     }
 
-    public Integer getMode() {
+    public Integer getUserInputForMode() {
+        Scanner scanner = new Scanner(System.in);
         Parser parser = new Parser();
+
         boolean check;
         String mode;
 
@@ -42,18 +47,23 @@ public class Input {
         }while (!check);
         int i = 0;
 
+        scanner.close();
         return Integer.parseInt(mode);
     }
-    public Integer getLevel() {
+    public Integer getUserInputForLevel() {
+        Scanner scanner = new Scanner(System.in);
         Parser parser = new Parser();
+
         String level;
-        boolean check = false;
+        boolean check;
+
         do {
             System.out.println("Enter level (3~5): ");
             level = scanner.nextLine();
             check = executeWithExceptionHandling(level, parser::checkLevelException);
         }while (!check);
 
+        scanner.close();
         return Integer.parseInt(level);
     }
 

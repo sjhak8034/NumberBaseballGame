@@ -13,7 +13,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinterPrinter> {
 
     public NumberBaseballStarter() {
         Input input = new Input();
-        this.level = input.getLevel();
+        this.level = input.getUserInputForLevel();
     }
 
     private void saveLog(GameLog gameLog, List<Integer> answer, ArrayList<Integer> userTry) {
@@ -51,7 +51,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinterPrinter> {
         boolean finish = false;
         while (!finish) {
             // 로그생성 -> 로그 프린터에 로그 클래스 저장
-            ArrayList<Integer> userTry = input.getUserTry(this.level);
+            ArrayList<Integer> userTry = input.getUserInputForTrial(this.level);
             GameLog gameLog = new GameLog(level, userTry, answer);
             saveLog(gameLog, answer, userTry);
             log.append(gameLog);
