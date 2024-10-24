@@ -13,7 +13,7 @@ public class Controller {
 
     public void start() {
         // 숫자 야구 게임 기록을 생성
-        Data<GameLogPrinter> recordBaseball = new NumberBaseBallData<GameLogPrinter>();
+        Data<GameLogPrinter> recordBaseball = new NumberBaseBallData();
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
 

@@ -17,7 +17,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         this.level = input.getLevel();
     }
 
-    private void getResult(GameLog gameLog, List<Integer> answer, ArrayList<Integer> userTry) {
+    private void saveLog(GameLog gameLog, List<Integer> answer, ArrayList<Integer> userTry) {
         for (int i = 0; i < this.level; i++) {
             if (answer.get(i) == userTry.get(i)) {
                 gameLog.incrementStrike();
@@ -27,11 +27,11 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         }
 
     }
-    public boolean displayResult(GameLog gameLog) {
+    public void displayResult(GameLog gameLog) {
         if (gameLog.isCorrect()) {
             System.out.println("축하합니다 정답입니다!");
             System.out.println("");
-            return true;
+
         } else if (gameLog.isOut()) {
             System.out.println("아웃");
             System.out.println("");
@@ -40,7 +40,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
             gameLog.printStrikeBall();
             System.out.println("");
         }
-        return false;
+
     }
     @Override
     public GameLogPrinter playGame() {
@@ -50,13 +50,14 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         List<Integer> answer = answerGenerator.getAnswer();
 
         boolean finish = false;
-        do {
+        while (!finish) {
             ArrayList<Integer> userTry = input.getUserTry(this.level);
-            GameLog gameLog = new GameLog(level,userTry,answer);
-            getResult(gameLog, answer, userTry);
+            GameLog gameLog = new GameLog(level, userTry, answer);
+            saveLog(gameLog, answer, userTry);
             log.append(gameLog);
-            finish = displayResult(gameLog);
-        }while (!finish);
+            displayResult(gameLog);
+            finish = gameLog.isCorrect();
+        }
         return log;
     }
 }
