@@ -1,9 +1,9 @@
 package data;
 
 public interface Data<T> {
-    void record(T record);
+    void save(T record);
 
-    void printRecord();
+    void printData();
 
 
 }

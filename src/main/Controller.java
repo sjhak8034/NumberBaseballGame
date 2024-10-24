@@ -26,12 +26,12 @@ public class Controller {
                 case STARTGAME:
 
                     Game<GameLogger> numberBaseball = new NumberBaseballStarter();
-                    recordBaseball.record(numberBaseball.playGame());
+                    recordBaseball.save(numberBaseball.playGame());
                     break;
 
                 case PRINTRECORD:
 
-                    recordBaseball.printRecord();
+                    recordBaseball.printData();
                     break;
 
                 case EXITGAME:
