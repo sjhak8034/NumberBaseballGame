@@ -5,8 +5,8 @@ import game.Game;
 import game.numberbaseball.NumberBaseballStarter;
 import game.log.GameLogger;
 import Input.Input;
-import UserRecord.NumberBaseBallMemory;
-import UserRecord.Memory;
+import data.NumberBaseBallMemory;
+import data.Memory;
 
 public class Controller {
 

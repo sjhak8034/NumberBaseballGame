@@ -1,4 +1,4 @@
-package UserRecord;
+package data;
 
 public interface Memory<T> {
     void record(T record);

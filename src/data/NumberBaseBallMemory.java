@@ -1,4 +1,4 @@
-package UserRecord;
+package data;
 
 import game.log.GameLogger;
 
