@@ -15,7 +15,6 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         this.level = inputHelper.getUserInputForLevel();
     }
 
-
     @Override
     public GameLog createGameLog(List<Integer> answer, List<Integer> userTrial) {
         int strike = 0;
@@ -50,16 +49,12 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         }
         System.out.println();
     }
-
-
-
     @Override
     public GameLogPrinter playGame() {
         GameLogPrinter log = new GameLogPrinter();
         InputHelper inputHelper = new InputHelper();
         AnswerGenerator answerGenerator = new AnswerGenerator(this.level);
         List<Integer> answer = answerGenerator.generateAnswer();
-
 
         while (true) {
             // 로그생성 -> 로그 프린터에 로그 클래스 저장
@@ -75,7 +70,4 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         }
         return log;
     }
-
-
-
 }
