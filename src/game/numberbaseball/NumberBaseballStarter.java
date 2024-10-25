@@ -15,8 +15,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         this.level = inputHelper.getUserInputForLevel();
     }
 
-    @Override
-    public GameLog createGameLog(List<Integer> answer, List<Integer> userTrial) {
+    private GameLog createGameLog(List<Integer> answer, List<Integer> userTrial) {
         int strike = 0;
         int ball = 0;
         boolean out = false;
@@ -36,8 +35,8 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         }
         return new GameLog(this.level, userTrial, answer, strike, ball, out, win);
     }
-    @Override
-    public void displayResult(GameLog gameLog) {
+
+    private void displayResult(GameLog gameLog) {
         if (gameLog.isCorrect()) {
             System.out.println("축하합니다 정답입니다!");
 
