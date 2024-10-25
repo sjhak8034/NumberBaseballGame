@@ -12,15 +12,15 @@ public class GameLog {
     private int ball = 0;
     private int out;
     private int win = 0;
-    private ArrayList<Integer> userTry;
+    private List<Integer> userTrial = new ArrayList<>();
     private List<Integer> answer;
 
-    public GameLog(int LEVEL, ArrayList<Integer> userTry, List<Integer> answer) {
+    public GameLog(int LEVEL, List<Integer> userTrial, List<Integer> answer) {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         DATE_TIME = now.format(formatter);
         this.LEVEL = LEVEL;
-        this.userTry = userTry;
+        this.userTrial = userTrial;
         this.answer = answer;
     }
 
@@ -72,7 +72,7 @@ public class GameLog {
         System.out.printf(" [");
         System.out.printf(ball + " 볼 " + strike + " 스트라이크 " + out + " 아웃");
         System.out.printf("] ");
-        System.out.println(this.userTry.toString());
+        System.out.println(this.userTrial.toString());
 
     }
 

@@ -4,16 +4,17 @@ import exception.DuplicateNumberException;
 import exception.NotNumberException;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
-public class Input {
+public class InputHelper {
     Scanner scanner = new Scanner(System.in);
 
 
-    public ArrayList<Integer> getUserInputForTrial(int level) {
+    public List<Integer> getUserInputForTrial(int level) {
 
-        ArrayList<Integer> userInputTrials = new ArrayList<>();
+        List<Integer> userInputTrials = new ArrayList<>();
         Parser parser = new Parser();
         boolean check;
         String userTrial;

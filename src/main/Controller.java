@@ -4,7 +4,7 @@ package main;
 import game.Game;
 import game.numberbaseball.NumberBaseballStarter;
 import game.log.GameLogPrinter;
-import Input.Input;
+import Input.InputHelper;
 import data.NumberBaseBallData;
 import data.Data;
 
@@ -20,8 +20,8 @@ public class Controller {
         boolean stop = false;
 
         while (!stop) {
-            Mode mode = getModeFromUserInput();
-            switch (mode) {
+            GameMode gameMode = getModeFromUserInput();
+            switch (gameMode) {
                 case STARTGAME:
 
                     Game<GameLogPrinter> numberBaseball = new NumberBaseballStarter();
@@ -48,11 +48,11 @@ public class Controller {
         }
     }
 
-    private Mode getModeFromUserInput(){
-        Input input = new Input();
-        int selectedModeNumber = input.getUserInputForMode();
+    private GameMode getModeFromUserInput(){
+        InputHelper inputHelper = new InputHelper();
+        int selectedModeNumber = inputHelper.getUserInputForMode();
 
-        return Mode.fromInt(selectedModeNumber);
+        return GameMode.fromInt(selectedModeNumber);
     }
 
 }
