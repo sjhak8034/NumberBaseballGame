@@ -17,15 +17,25 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
 
 
     @Override
-    public void saveLog(GameLog gameLog, List<Integer> answer, List<Integer> userTrial) {
-        for (int i = 0; i < this.level; i++) {
+    public GameLog createGameLog(int level, List<Integer> answer, List<Integer> userTrial) {
+        int strike = 0;
+        int ball = 0;
+        boolean out = false;
+        boolean win = false;
+        for (int i = 0; i < level; i++) {
             if (answer.get(i) == userTrial.get(i)) {
-                gameLog.incrementStrike();
+                strike++;
             } else if (answer.contains(userTrial.get(i))) {
-                gameLog.incrementBall();
+                ball++;
             }
         }
-
+        if (strike == 0) {
+            out = true;
+        }
+        if (strike == level) {
+            win = true;
+        }
+        return new GameLog(level, userTrial, answer, strike, ball, out, win);
     }
     @Override
     public void displayResult(GameLog gameLog) {
@@ -38,14 +48,10 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         } else {
             gameLog.printStrikeBall();
         }
-        System.out.println("");
+        System.out.println();
     }
-    @Override
-    public GameLog createGameLog(List<Integer> answer, List<Integer> userTrial) {
-        GameLog gameLog = new GameLog(level, userTrial, answer);
-        saveLog(gameLog, answer, userTrial);
-        return gameLog;
-    }
+
+
 
     @Override
     public GameLogPrinter playGame() {
@@ -58,7 +64,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         while (true) {
             // 로그생성 -> 로그 프린터에 로그 클래스 저장
             List<Integer> userTrial = inputHelper.getUserInputForTrial(this.level);
-            GameLog gameLog = createGameLog(answer, userTrial);
+            GameLog gameLog = createGameLog(level, answer, userTrial);
 
             log.append(gameLog);
             displayResult(gameLog);

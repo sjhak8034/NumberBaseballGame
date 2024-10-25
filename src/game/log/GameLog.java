@@ -8,48 +8,37 @@ import java.util.List;
 public class GameLog {
     private final int LEVEL;
     private final String DATE_TIME;
-    private int strike = 0;
-    private int ball = 0;
-    private int out;
-    private int win = 0;
+    private final int STRIKE;
+    private final int BALL;
+    private final boolean out;
+    private final boolean WIN;
     private List<Integer> userTrial = new ArrayList<>();
-    private List<Integer> answer;
+    private final List<Integer> answer;
 
-    public GameLog(int LEVEL, List<Integer> userTrial, List<Integer> answer) {
+    public GameLog(int LEVEL, List<Integer> userTrial, List<Integer> answer, int STRIKE,
+                   int ball, boolean out, boolean WIN) {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         DATE_TIME = now.format(formatter);
         this.LEVEL = LEVEL;
         this.userTrial = userTrial;
         this.answer = answer;
-    }
-
-    public void incrementStrike() {
-        strike++;
-    }
-
-    public void incrementBall() {
-        ball++;
+        this.STRIKE = STRIKE;
+        this.BALL = ball;
+        this.out = out;
+        this.WIN = WIN;
     }
 
     public boolean isCorrect() {
-        if(strike == LEVEL){
-            this.win++;
-            return true;
-        }
-        return false;
+        return WIN;
     }
 
     public boolean isOut() {
-        if(strike ==0 && ball == 0){
-            this.out++;
-            return true;
-        }
-        return false;
+        return out;
     }
 
     public void printStrikeBall() {
-        System.out.println(ball + " 볼 " + strike + " 스트라이크");
+        System.out.println(BALL + " 볼 " + STRIKE + " 스트라이크");
     }
 
     public void printLevel() {
@@ -70,7 +59,7 @@ public class GameLog {
     public void printAll() {
         printTime();
         System.out.printf(" [");
-        System.out.printf(ball + " 볼 " + strike + " 스트라이크 " + out + " 아웃");
+        System.out.printf(BALL + " 볼 " + STRIKE + " 스트라이크 " + out + " 아웃");
         System.out.printf("] ");
         System.out.println(this.userTrial.toString());
 
