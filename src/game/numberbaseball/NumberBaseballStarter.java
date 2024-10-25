@@ -29,7 +29,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
                 ball++;
             }
         }
-        if (strike == 0) {
+        if (strike == 0 && ball == 0) {
             out = true;
         }
         if (strike == level) {

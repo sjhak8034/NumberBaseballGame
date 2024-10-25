@@ -10,7 +10,7 @@ public class GameLog {
     private final String DATE_TIME;
     private final int STRIKE;
     private final int BALL;
-    private final boolean out;
+    private final boolean OUT;
     private final boolean WIN;
     private List<Integer> userTrial = new ArrayList<>();
     private final List<Integer> answer;
@@ -25,16 +25,16 @@ public class GameLog {
         this.answer = answer;
         this.STRIKE = STRIKE;
         this.BALL = ball;
-        this.out = out;
+        this.OUT = out;
         this.WIN = WIN;
     }
 
     public boolean isCorrect() {
-        return WIN;
+        return this.WIN;
     }
 
     public boolean isOut() {
-        return out;
+        return this.OUT;
     }
 
     public void printStrikeBall() {
@@ -59,7 +59,7 @@ public class GameLog {
     public void printAll() {
         printTime();
         System.out.printf(" [");
-        System.out.printf(BALL + " 볼 " + STRIKE + " 스트라이크 " + out + " 아웃");
+        System.out.printf(BALL + " 볼 " + STRIKE + " 스트라이크 " + (this.OUT? 1 : 0) + " 아웃");
         System.out.printf("] ");
         System.out.println(this.userTrial.toString());
 
