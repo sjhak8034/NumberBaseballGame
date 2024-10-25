@@ -14,12 +14,14 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         InputHelper inputHelper = new InputHelper();
         this.level = inputHelper.getUserInputForLevel();
     }
+
+
     @Override
-    public void saveLog(GameLog gameLog, List<Integer> answer, List<Integer> userTry) {
+    public void saveLog(GameLog gameLog, List<Integer> answer, List<Integer> userTrial) {
         for (int i = 0; i < this.level; i++) {
-            if (answer.get(i) == userTry.get(i)) {
+            if (answer.get(i) == userTrial.get(i)) {
                 gameLog.incrementStrike();
-            } else if (answer.contains(userTry.get(i))) {
+            } else if (answer.contains(userTrial.get(i))) {
                 gameLog.incrementBall();
             }
         }

@@ -11,7 +11,11 @@ import java.util.function.Consumer;
 public class InputHelper {
     Scanner scanner = new Scanner(System.in);
 
-
+    /**
+     *
+     * @param level Exception checked Integer Level
+     * @return Exception checked UserInputForAnswer
+     */
     public List<Integer> getUserInputForTrial(int level) {
 
         List<Integer> userInputTrials = new ArrayList<>();
@@ -33,6 +37,10 @@ public class InputHelper {
         return userInputTrials;
     }
 
+    /**
+     *
+     * @return Exception checked mode
+     */
     public Integer getUserInputForMode() {
 
         Parser parser = new Parser();
@@ -49,6 +57,11 @@ public class InputHelper {
 
         return Integer.parseInt(mode);
     }
+
+    /**
+     *
+     * @return Exception checked level
+     */
     public Integer getUserInputForLevel() {
 
         Parser parser = new Parser();
@@ -66,6 +79,12 @@ public class InputHelper {
         return Integer.parseInt(level);
     }
 
+    /**
+     *  For check whether inputFromUser has exception, condition can change as method
+     * @param input UserInput that have to be checked in this method
+     * @param checkException check method this should be changed as Input
+     * @return
+     */
     private boolean executeWithExceptionHandling(String input , Consumer<String> checkException) {
 
         try {

@@ -12,7 +12,7 @@ public class Controller {
 
 
     public void start() {
-        // 숫자 야구 게임 기록을 생성
+
         Data<GameLogPrinter> DataManager = new NumberBaseBallDataManager();
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
@@ -48,6 +48,10 @@ public class Controller {
         }
     }
 
+    /**
+     * get userInputForMode to choose GameMode
+     * @return return GameMode to select play game or looking for logs or exit game
+     */
     private GameMode getModeFromUserInput(){
         InputHelper inputHelper = new InputHelper();
         int selectedModeNumber = inputHelper.getUserInputForMode();

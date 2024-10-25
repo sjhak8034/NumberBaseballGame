@@ -11,6 +11,11 @@ public class Parser {
     private final String NUMBER_REG_LEVEL = "[3-5]";
     private final String NUMBER_REG_MODE = "[1-4]";
 
+    /**
+     *
+     * @param input userInputForChooseLevel it should be 3~5 numeric String
+     * @throws NotNumberException
+     */
     public void checkLevelException(String input) throws NotNumberException {
         Pattern LEVEL_PATTERN = Pattern.compile(NUMBER_REG_LEVEL);
         Matcher matcher = LEVEL_PATTERN.matcher(input);
@@ -21,7 +26,12 @@ public class Parser {
 
     }
 
-
+    /**
+     *
+     * @param userTrial userInputAnswer it should be numericString and Level digit number
+     * @param level selectedLevel from getUserInputForLevel
+     * @throws DuplicateNumberException
+     */
     public void checkUserTryException(String userTrial, int level) throws DuplicateNumberException {
         final String NUMBER_REG_TRY = "^(?!.*(.).*\\1)[1-9]{" + level + "}$";
 
@@ -35,6 +45,11 @@ public class Parser {
 
     }
 
+    /**
+     *
+     * @param input userInputForMode it should be 1~3 numericString
+     * @throws NotNumberException
+     */
     public void checkModeException(String input) throws NotNumberException {
         Pattern pattern = Pattern.compile(NUMBER_REG_MODE);
         Matcher matcher = pattern.matcher(input);
