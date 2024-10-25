@@ -5,7 +5,7 @@ import game.Game;
 import game.numberbaseball.NumberBaseballStarter;
 import game.log.GameLogPrinter;
 import Input.InputHelper;
-import data.NumberBaseBallData;
+import data.NumberBaseBallDataManager;
 import data.Data;
 
 public class Controller {
@@ -13,7 +13,7 @@ public class Controller {
 
     public void start() {
         // 숫자 야구 게임 기록을 생성
-        Data<GameLogPrinter> recordBaseball = new NumberBaseBallData();
+        Data<GameLogPrinter> DataManager = new NumberBaseBallDataManager();
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
 
@@ -22,23 +22,23 @@ public class Controller {
         while (!stop) {
             GameMode gameMode = getModeFromUserInput();
             switch (gameMode) {
-                case STARTGAME:
+                case START_GAME:
 
                     Game<GameLogPrinter> numberBaseball = new NumberBaseballStarter();
-                    recordBaseball.save(numberBaseball.playGame());
+                    DataManager.save(numberBaseball.playGame());
                     break;
 
-                case PRINTRECORD:
+                case PRINT_RECORD:
 
-                    recordBaseball.printData();
+                    DataManager.printData();
                     break;
 
-                case PLAYREPLAY:
+                case PLAY_REPLAY:
 
-                    recordBaseball.printReplay();
+                    DataManager.printReplay();
                     break;
 
-                case EXITGAME:
+                case EXIT_GAME:
 
                     stop = true;
                     System.out.println("<숫자 야구 게임을 종료합니다>");

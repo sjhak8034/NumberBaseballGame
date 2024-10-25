@@ -5,7 +5,7 @@ import game.log.GameLogPrinter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NumberBaseBallData implements Data<GameLogPrinter> {
+public class NumberBaseBallDataManager implements Data<GameLogPrinter> {
 
     private final List<GameLogPrinter> logData = new ArrayList<>(){};
     // 판 단위의 로그를 저장
