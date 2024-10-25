@@ -17,12 +17,12 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
 
 
     @Override
-    public GameLog createGameLog(int level, List<Integer> answer, List<Integer> userTrial) {
+    public GameLog createGameLog(List<Integer> answer, List<Integer> userTrial) {
         int strike = 0;
         int ball = 0;
         boolean out = false;
         boolean win = false;
-        for (int i = 0; i < level; i++) {
+        for (int i = 0; i < this.level; i++) {
             if (answer.get(i) == userTrial.get(i)) {
                 strike++;
             } else if (answer.contains(userTrial.get(i))) {
@@ -32,10 +32,10 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         if (strike == 0 && ball == 0) {
             out = true;
         }
-        if (strike == level) {
+        if (strike == this.level) {
             win = true;
         }
-        return new GameLog(level, userTrial, answer, strike, ball, out, win);
+        return new GameLog(this.level, userTrial, answer, strike, ball, out, win);
     }
     @Override
     public void displayResult(GameLog gameLog) {
@@ -64,7 +64,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         while (true) {
             // 로그생성 -> 로그 프린터에 로그 클래스 저장
             List<Integer> userTrial = inputHelper.getUserInputForTrial(this.level);
-            GameLog gameLog = createGameLog(level, answer, userTrial);
+            GameLog gameLog = createGameLog(answer, userTrial);
 
             log.append(gameLog);
             displayResult(gameLog);
@@ -75,4 +75,7 @@ public class NumberBaseballStarter implements Game<GameLogPrinter> {
         }
         return log;
     }
+
+
+
 }
