@@ -2,6 +2,7 @@ package main;
 
 
 import game.Game;
+import game.log.GameLog;
 import game.log.LogPrinter;
 import game.numberbaseball.NumberBaseballStarter;
 import game.log.GameLogPrinter;
@@ -14,7 +15,7 @@ public class Controller {
 
     public void start() {
 
-        Data<LogPrinter> DataManager = new NumberBaseBallDataManager();
+        Data<LogPrinter<GameLog>> DataManager = new NumberBaseBallDataManager();
 
         System.out.println("환영합니다! 원하시는 번호를 입력해주세요");
 
